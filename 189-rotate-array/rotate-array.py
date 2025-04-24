@@ -5,11 +5,14 @@ class Solution:
         """
         n = len(nums)
         k %= n
-        if k !=0:
-            reverse = [0] * n
+        if k!=0:
+            def reverse_arr(start,end):
+                end -= 1
+                while start<end:
+                    nums[start],nums[end] = nums[end],nums[start]
+                    start += 1
+                    end -= 1
+            reverse_arr(0,n)
+            reverse_arr(0,k)
+            reverse_arr(k,n)
 
-            for i in range(n):
-                reverse[(i+k)%n] = nums[i]
-
-            for i in range(n):
-                nums[i] = reverse[i]
