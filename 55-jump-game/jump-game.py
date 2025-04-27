@@ -6,6 +6,5 @@ class Solution:
         for i in range(n):
             if i > farthest:
                 return False
-            farthest = max(farthest, i + nums[i])
-
-        return True
+            farthest = max(farthest,i+nums[i]) 
+        return True           
