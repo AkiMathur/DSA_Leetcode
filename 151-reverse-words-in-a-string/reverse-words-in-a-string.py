@@ -1,14 +1,13 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         l_w = len(s)
-        strt,end = len(s)-1,len(s)
+        end = len(s)
         for i in range(len(s)-1,-1,-1):
             if s[i] != " ":
-                strt = i
-                if strt == 0 or s[strt-1] == " ":
-                    s += s[strt:end] + " "
+                if i == 0 or s[i-1] == " ":
+                    s += s[i:end] + " "
             else:
-                strt,end = i,i
+                end = i
                 
         s = s[l_w:len(s)-1] 
         return s
