@@ -1,20 +1,15 @@
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        if len(nums) <= 2:
-            return len(nums)
-        
-        i = 1  # Points to where the next valid element goes
-        count = 1  # Number of times the current number has been seen
 
-        for j in range(1, len(nums)):
-            if nums[j] == nums[j - 1]:
-                count += 1
-            else:
-                count = 1  # New number
-            
-            if count <= 2:
-                nums[i] = nums[j]
-                i += 1
-        
-        return i
+        i = 0
+        count = 0
                 
+        for j in range(1,len(nums)):
+            if nums[i] == nums[j] and count < 1:
+                i += 1
+                count += 1
+            elif nums[i] != nums[j]:
+                count = 0
+                i += 1
+            nums[i] = nums[j]
+        return i + 1
